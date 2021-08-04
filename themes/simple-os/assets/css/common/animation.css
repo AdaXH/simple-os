@@ -1,0 +1,45 @@
+.opacity-anim {
+  animation: opacity-anim 5s infinite;
+}
+@keyframes opacity-anim {
+  0% {
+    opacity: 0.3;
+  }
+  70% {
+    opacity: 0.8;
+  }
+  100% {
+    opacity: 0.3;
+  }
+}
+
+.shake-anim {
+  animation: shake-anim 30s infinite;
+}
+
+@keyframes shake-anim {
+  0% {
+    transform: translateZ(0) rotate(-1deg);
+  }
+
+  40% {
+    transform: translateZ(0) rotate(1deg);
+  }
+
+  to {
+    transform: translateZ(0) rotate(-1deg);
+  }
+}
+
+.from-right-anim {
+  animation: from-right-anim 0.4s;
+}
+
+@keyframes from-right-anim {
+  from {
+    transform: translate3d(60px, 0, 0);
+  }
+  to {
+    transform: translate3d(0, 0, 0);
+  }
+}

@@ -1,0 +1,12 @@
+ul,
+li {
+  list-style: none;
+}
+
+h3 {
+  position: relative;
+  left: -40px;
+  margin-top: 21px;
+  padding-top: 20px;
+  border-top: 1px solid #c1c1c1;
+}

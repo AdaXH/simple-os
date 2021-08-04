@@ -1,0 +1,43 @@
+div.nav {
+  width: 100%;
+  display: flex;
+  height: 60px;
+  padding-left: 50px;
+  margin-top: 10px;
+  position: fixed;
+  z-index: 2;
+  color: white;
+  align-items: center;
+}
+.nav .blog-title h1 {
+  font-size: 22px;
+  font-weight: 700;
+}
+.nav-bar {
+  /* display; */
+  margin-left: 20px;
+  height: 60px;
+}
+.nav-bar .nav-list {
+  text-align: center;
+  display: flex;
+  height: 100%;
+  align-items: center;
+}
+.nav-bar .nav-list .nav-item {
+  /* display: inline-block; */
+  padding: 0 5px;
+  margin: 0 10px;
+}
+.nav-bar .nav-list .nav-item a {
+  padding: 0 5px 10px;
+  color: rgba(255, 255, 255, 0.7);
+  border-bottom: 1px solid transparent;
+  transition: all 0.3s;
+}
+.nav-bar .nav-list .nav-item a.active {
+  border-bottom: 1px solid red;
+}
+.nav-bar .nav-list .nav-item a:hover {
+  border-bottom: 1px solid red;
+}

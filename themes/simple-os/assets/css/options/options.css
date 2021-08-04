@@ -1,0 +1,8 @@
+ul,
+li {
+  list-style: none;
+}
+li label {
+  width: 200px;
+  text-align: right;
+}

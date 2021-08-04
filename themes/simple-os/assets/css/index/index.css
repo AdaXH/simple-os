@@ -1,0 +1,74 @@
+.user-center {
+  position: absolute;
+  width: 500px;
+  height: 350px;
+  /* background: rgba(255, 255, 255, 0.3); */
+  top: 50%;
+  left: 50%;
+  margin: -250px 0 0 -250px;
+  /* z-index: 2; */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  transition: all 0.4s;
+}
+@media screen and (max-width: 990px) {
+  .user-center {
+    width: 60%;
+    margin-left: -30%;
+  }
+}
+.user-center .user-name h3 {
+  margin-top: 5px;
+  letter-spacing: 1px;
+}
+.user-center .user-avatar {
+  width: 80px;
+  height: 80px;
+  background-color: white;
+  border-radius: 40px;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.user-center .user-tips {
+  margin-top: 20px;
+  background: rgba(255, 255, 255, 0.3);
+  padding: 5px 15px;
+  border-radius: 10px;
+  width: 100%;
+  display: flex;
+}
+.user-center .user-tips a {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.user-center .user-tips a i {
+  font-size: 26px;
+  color: #2d2a2b;
+  transition: color 0.4s;
+}
+.user-center .user-tips a i.email {
+  font-size: 24px;
+}
+.user-center .user-tips a i:hover {
+  color: black;
+}
+
+.hitokoto-container {
+  margin-top: 20px;
+  padding: 0 20px;
+  position: relative;
+}
+#hitokoto-text {
+  font-size: 14px;
+}
+.hitokoto-container::before {
+  content: "“";
+}
+.hitokoto-container::after {
+  content: "”";
+}

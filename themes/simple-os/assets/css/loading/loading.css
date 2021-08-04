@@ -1,0 +1,189 @@
+.loading-container {
+  position: fixed;
+  width: 100%;
+  height: 100vh;
+  z-index: 10;
+  top: 0;
+  left: 0;
+}
+.loading-top,
+.loading-bottom {
+  position: absolute;
+  width: 100%;
+  height: 50%;
+  background: #2d2a2b;
+  top: 0;
+  left: 0;
+  color: white;
+  text-align: center;
+}
+.loading-top {
+  padding-top: 100px;
+}
+.loading-top h3 {
+  font-size: 30px;
+  color: #dfdfdf;
+  text-align: center;
+  margin-top: 60px;
+  font-weight: normal;
+}
+.loading-top div {
+  font-size: 15px;
+  color: #b5b5b5;
+  text-align: center;
+  margin-top: 20px;
+}
+.loading-top h4 {
+  font-size: 15px;
+  color: #b5b5b5;
+  text-align: center;
+  margin-top: 20px;
+  animation: loading-tips-unlock 3.5s infinite;
+}
+.loading-bottom {
+  top: unset;
+  bottom: 0;
+}
+.unlock-box {
+  position: absolute;
+  width: 150px;
+  height: 400px;
+  left: 50%;
+  top: 0;
+  margin-left: -75px;
+}
+.unlock-btn {
+  position: absolute;
+  width: 100px;
+  height: 80px;
+  top: 30px;
+  left: 50%;
+  margin-left: -50px;
+  cursor: pointer;
+  display: flex;
+  z-index: 5;
+}
+.unlock-btn .unlock-direction {
+  width: 10px;
+  height: 10px;
+  border: 1px solid white;
+  border-left: none;
+  border-top: none;
+  transform: rotate(45deg);
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  margin-left: -5px;
+  animation: loading-tips-unlock 3.5s infinite;
+}
+
+.unlock-btn .btn {
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  border: 4px solid #4ec8b2;
+  border-radius: 50%;
+  left: 50%;
+  margin-left: -23px;
+}
+.unlock-btn .btn-inner {
+  width: 30px;
+  position: absolute;
+  top: 6px;
+  height: 30px;
+  left: 50%;
+  margin-left: -17px;
+  border: 3px solid #4ec8b2;
+  border-radius: 50%;
+}
+.btn,
+.btn-inner {
+  transform-origin: center;
+  animation: loading 2s infinite linear;
+}
+.btn {
+  /* transform: rotate(-60deg); */
+  z-index: 1;
+  animation-delay: -0.5s;
+  animation: loading-inner 2s infinite linear;
+}
+.btn::after,
+.btn-inner::after {
+  position: absolute;
+  content: "";
+  width: 5px;
+  height: 5px;
+  background: #2d2a2b;
+}
+.btn::after,
+.btn-inner::after {
+  top: -4px;
+}
+.loading-dot {
+  position: absolute;
+  top: 100px;
+  width: 20px;
+  left: 50%;
+  margin-left: -10px;
+  height: 200px;
+}
+.loading-dot span {
+  width: 10px;
+  height: 10px;
+  border-radius: 5px;
+  background: white;
+  display: block;
+  margin-top: 20px;
+  margin-left: 5px;
+}
+
+.hideen-animation-top {
+  animation: hidden-top 1s forwards;
+}
+.hideen-animation-bottom {
+  animation: hidden-bottom 1s forwards;
+}
+@keyframes loading {
+  from {
+    transform: rotate(0);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+@keyframes loading-inner {
+  from {
+    transform: rotate(0);
+  }
+  to {
+    transform: rotate(-360deg);
+  }
+}
+@keyframes hidden-bottom {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+  to {
+    transform: translate3d(0, 100%, 0);
+  }
+}
+
+@keyframes hidden-top {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+  to {
+    transform: translate3d(0, -100%, 0);
+  }
+}
+@keyframes loading-tips-unlock {
+  0% {
+    opacity: 0.3;
+  }
+  70% {
+    opacity: 0.8;
+  }
+  100% {
+    opacity: 0.3;
+  }
+}
