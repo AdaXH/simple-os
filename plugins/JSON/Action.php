@@ -2,14 +2,22 @@
 header('Access-Control-Allow-Origin: *');
 class JSON_Action extends Typecho_Widget implements Widget_Interface_Do
 {
+    /**
+     * 数据库实例
+     */
     private $db;
     private $res;
+    /**
+     * WidgetOptions实例
+     */
+    private $option;
     const LACK_PARAMETER = 'Not found';
     public function __construct($request, $response, $params = NULL)
     {
         parent::__construct($request, $response, $params);
         $this->db  = Typecho_Db::get();
         $this->res = new Typecho_Response();
+        $this->option = Typecho_Widget::widget('Widget_Options');
         if (method_exists($this, $this->request->type)) {
             call_user_func(array(
                 $this,
@@ -281,6 +289,20 @@ class JSON_Action extends Typecho_Widget implements Widget_Interface_Do
         }
         $this->makeData($result);
     }
+    /**
+     * 查询loading页面配置
+     */
+    private function queryLoadingCfg() {
+        try {
+            $res = $this->option->headStatus();
+            $this->makeData($res);
+        } catch (Exception $e) {
+            echo $e;
+        }
+    }
+    /**
+     * 查询所有分类
+     */
     private function queryAllMetas()
     {
         try {

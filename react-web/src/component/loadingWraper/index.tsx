@@ -1,9 +1,11 @@
 import React, { useState, useRef, useEffect } from 'react';
+import { hasExpires, setExpires } from '@/common/util';
+import { LOADING_CACHE_KEY } from './constant';
 
 import './styles.css';
 
 export default () => {
-  const [visible, setVisible] = useState<Boolean>(true);
+  const [visible, setVisible] = useState<Boolean>(hasExpires(LOADING_CACHE_KEY));
   const ref: Ref<HTMLDivElement> = useRef();
   useEffect(() => {
     if (ref?.current) {
@@ -21,7 +23,7 @@ export default () => {
       top.classList.add(HIDE_TOP);
       bottom.classList.add(HIDE_BOTTOM);
       setTimeout(() => {
-        // unlockContainer.remove();
+        setExpires(LOADING_CACHE_KEY, {});
         setVisible(false);
       }, 1000);
     }
