@@ -292,9 +292,14 @@ class JSON_Action extends Typecho_Widget implements Widget_Interface_Do
     /**
      * 查询loading页面配置
      */
-    private function queryLoadingCfg() {
+    private function queryLoadingCfg()
+    {
         try {
-            $res = $this->option->headStatus();
+            $res = array(
+                'loadingTitle' => $this->option->loadingTitle,
+                'loadingSubTitle' => $this->option->loadingSubTitle,
+                'unlockTip' => $this->option->unlockTip,
+            );
             $this->makeData($res);
         } catch (Exception $e) {
             echo $e;

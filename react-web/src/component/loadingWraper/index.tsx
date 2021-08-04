@@ -1,17 +1,31 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { hasExpires, setExpires } from '@/common/util';
+import { useDidMount } from '@/common/hooks';
 import { LOADING_CACHE_KEY } from './constant';
+import { queryLoadignConfig } from './serivce';
 
 import './styles.css';
+
+interface Config {
+  blogTitle?: string;
+  loadingTitle?: string;
+  loadingSubTitle?: string;
+  unlockTip?: string;
+}
 
 export default () => {
   const [visible, setVisible] = useState<Boolean>(hasExpires(LOADING_CACHE_KEY));
   const ref: Ref<HTMLDivElement> = useRef();
+  const [loadingCfg, setCfg] = useState<Config>({});
   useEffect(() => {
     if (ref?.current) {
       listenDom(ref.current);
     }
   }, [ref]);
+
+  useDidMount(async () => {
+    queryLoadignConfig().then((res) => setCfg(res));
+  });
 
   function listenDom(dot) {
     function unlock() {
@@ -79,12 +93,13 @@ export default () => {
     }
   }
   if (!visible) return null;
+  const { loadingTitle, loadingSubTitle, unlockTip } = loadingCfg;
   return (
     <div className="loading-container">
       <div className="loading-top">
-        <h3>{'<?php $this->options->loadingTitle() ?>'}</h3>
-        <div className="loading-tips">{'<?php $this->options->loadingSubTitle() ?>'}</div>
-        <h4 className="loading-tips-unlock">{'<?php $this->options->unlockTip() ?>'}</h4>
+        <h3>{loadingTitle}</h3>
+        <div className="loading-tips">{loadingSubTitle}</div>
+        <h4 className="loading-tips-unlock">{unlockTip}</h4>
       </div>
       <div className="loading-bottom">
         <div className="unlock-box">

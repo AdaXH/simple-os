@@ -10,7 +10,8 @@ if (!defined('__TYPECHO_ROOT_DIR__')) {
  * @version 1.0
  * @link https://sangsir.com
  */
-class JSON_Plugin implements Typecho_Plugin_Interface {
+class JSON_Plugin implements Typecho_Plugin_Interface
+{
     /**
      * 激活插件方法,如果激活失败,直接抛出异常
      * 
@@ -18,7 +19,8 @@ class JSON_Plugin implements Typecho_Plugin_Interface {
      * @return void
      * @throws Typecho_Plugin_Exception
      */
-    public static function activate() {
+    public static function activate()
+    {
         Helper::addRoute('jsonp', '/api/[type]', 'JSON_Action');
         Helper::addAction('json', 'JSON_Action');
     }
@@ -30,7 +32,8 @@ class JSON_Plugin implements Typecho_Plugin_Interface {
      * @return void
      * @throws Typecho_Plugin_Exception
      */
-    public static function deactivate() {
+    public static function deactivate()
+    {
         Helper::removeRoute('jsonp');
         Helper::removeAction('json');
     }
@@ -41,7 +44,8 @@ class JSON_Plugin implements Typecho_Plugin_Interface {
      * @param Typecho_Widget_Helper_Form $form 配置面板
      * @return void
      */
-    public static function config(Typecho_Widget_Helper_Form $form) {
+    public static function config(Typecho_Widget_Helper_Form $form)
+    {
     }
     /**
      * 个人用户的配置面板
@@ -50,6 +54,7 @@ class JSON_Plugin implements Typecho_Plugin_Interface {
      * @param Typecho_Widget_Helper_Form $form
      * @return void
      */
-    public static function personalConfig(Typecho_Widget_Helper_Form $form) {
+    public static function personalConfig(Typecho_Widget_Helper_Form $form)
+    {
     }
 }
