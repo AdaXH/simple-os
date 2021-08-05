@@ -3,9 +3,9 @@ import Loading from '@/component/loadingWraper';
 import { UserInfo } from './component/userInfo';
 // import styles from './index.module.less';
 
-export default () => (
+export default ({ history }) => (
   <>
     <Loading />
-    <UserInfo />
+    <UserInfo history={history}/>
   </>
 );

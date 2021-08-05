@@ -306,6 +306,27 @@ class JSON_Action extends Typecho_Widget implements Widget_Interface_Do
         }
     }
     /**
+     * 查询主页面配置
+     */
+    private function queryIndexPageConfig()
+    {
+        try {
+            $res = array(
+                'qq' => $this->option->qq,
+                'email' => $this->option->email,
+                'github' => $this->option->github,
+                'avatar' => $this->option->avatar,
+                'userName' => $this->option->userName,
+                'hitokoto' => $this->option->hitokoto,
+                'blogTitle' => $this->option->blogTitle,
+                'desc' => $this->option->desc,
+            );
+            $this->makeData($res);
+        } catch (Exception $e) {
+            echo $e;
+        }
+    }
+    /**
      * 查询所有分类
      */
     private function queryAllMetas()

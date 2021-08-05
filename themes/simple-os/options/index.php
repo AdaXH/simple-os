@@ -129,13 +129,16 @@ EOF;
     $github = new Typecho_Widget_Helper_Form_Element_Text('github', NULL, "", _t('Github：'));
     $github->setAttribute('class', 'options-content options-home');
     $form->addInput($github);
-    $avatar = new Typecho_Widget_Helper_Form_Element_Text('avatar', NULL, "", _t('头像：'));
+    $avatar = new Typecho_Widget_Helper_Form_Element_Text('avatar', NULL, "", _t('头像url：'));
     $avatar->setAttribute('class', 'options-content options-home');
     $form->addInput($avatar);
+    $userName = new Typecho_Widget_Helper_Form_Element_Text('userName', NULL, "不填写将使用博客标题", _t('用户名：'));
+    $userName->setAttribute('class', 'options-content options-home user-name-placeholder');
+    $form->addInput($userName);
 
     $hitokoto = new Typecho_Widget_Helper_Form_Element_Radio('hitokoto', array(
-        'true' => _t('启用'),
-        'false' => _t('关闭')
+        true => _t('启用'),
+        false => _t('关闭(将显示个人简介)')
     ), "", _t('是否启用一言：'));
     $hitokoto->setAttribute('class', 'options-content options-home');
     $form->addInput($hitokoto);
