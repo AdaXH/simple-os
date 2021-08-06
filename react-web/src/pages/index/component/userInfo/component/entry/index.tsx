@@ -19,7 +19,7 @@ export const Entry: React.FC<{ onClick: (...args: any[]) => any }> = ({ onClick 
         height="100"
         viewBox="0 0 100 100"
       >
-        <g className="fingerprint-out" fill="none" stroke-width="2" stroke-linecap="round">
+        <g className="fingerprint-out" fill="none" strokeWidth="2" strokeLinecap="round">
           <path
             className="odd"
             d="m 25.117139,57.142857 c 0,0 -1.968558,-7.660465 -0.643619,-13.149003 1.324939,-5.488538 4.659682,-8.994751 4.659682,-8.994751"
@@ -98,7 +98,7 @@ export const Entry: React.FC<{ onClick: (...args: any[]) => any }> = ({ onClick 
         height="100"
         viewBox="0 0 100 100"
       >
-        <g className="fingerprint-out" fill="none" stroke-width="2" stroke-linecap="round">
+        <g className="fingerprint-out" fill="none" strokeWidth="2" strokeLinecap="round">
           <path
             className="odd"
             d="m 25.117139,57.142857 c 0,0 -1.968558,-7.660465 -0.643619,-13.149003 1.324939,-5.488538 4.659682,-8.994751 4.659682,-8.994751"

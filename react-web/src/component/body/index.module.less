@@ -1,7 +1,35 @@
+@import url('../../common//styles//animation.less');
+@randomNum: `Math.ceil(Math.random() * 2000)`;
+@randomWidth: `Math.random() * 3`;
+@randomHeight: `Math.random() * 140`;
+@randomBottom: `Math.ceil(Math.random() * 100)`;
+@randomDuration: `Math.random() * 50`;
+@lineColor: #6df6ff;
 .wraper {
   position: fixed;
   pointer-events: none;
   width: 100vw;
   height: 100vh;
-  background: rgba(0, 0, 0, 0.5);
+  background: rgba(0, 0, 0, 0.6);
+  .line {
+    border-radius: 10px;
+    position: absolute;
+    background: @lineColor;
+    box-shadow: 0px 0px 8px 2px @lineColor;
+    animation-name: bottom2Top;
+    animation-iteration-count: infinite;
+  }
 }
+
+.fn(@i) when(@i <= 30){
+  .lineLeft@{i} {
+    left: @i + @randomNum + 0px;
+    width: @randomWidth + 0px;
+    bottom: -@randomBottom + 0px;
+    height: @randomHeight + 0px;
+    animation-duration: (@randomDuration) + 0s !important;
+  }
+  .fn((@i + 1));
+}
+  
+.fn(0);

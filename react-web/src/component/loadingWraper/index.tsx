@@ -13,8 +13,10 @@ interface Config {
   unlockTip?: string;
 }
 
+const needLoading = hasExpires(LOADING_CACHE_KEY);
+
 export default () => {
-  const [visible, setVisible] = useState<Boolean>(hasExpires(LOADING_CACHE_KEY));
+  const [visible, setVisible] = useState<Boolean>(needLoading);
   const ref: Ref<HTMLDivElement> = useRef();
   const [loadingCfg, setCfg] = useState<Config>({});
   useEffect(() => {
@@ -24,6 +26,7 @@ export default () => {
   }, [ref]);
 
   useDidMount(async () => {
+    if (!needLoading) return;
     queryLoadignConfig().then((res) => setCfg(res));
   });
 

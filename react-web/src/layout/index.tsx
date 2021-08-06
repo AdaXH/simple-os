@@ -1,12 +1,14 @@
 import React from 'react';
 import Body from '@/component/body';
 
+import styles from './index.module.less';
+
 export default ({ children }) => {
   return (
     <>
       <Body />
       <nav>header</nav>
-      <div>{children}</div>
+      <main className={styles.main}>{children}</main>
     </>
   );
 };
