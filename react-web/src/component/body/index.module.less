@@ -1,8 +1,8 @@
 @import url('../../common//styles//animation.less');
-@randomNum: `Math.ceil(Math.random() * 2000)`;
+@randomNum: `Math.ceil(Math.random() * 2000) `;
 @randomWidth: `Math.random() * 3`;
 @randomHeight: `Math.random() * 140`;
-@randomBottom: `Math.ceil(Math.random() * 100)`;
+@randomBottom: `Math.ceil(Math.random() * 100) `;
 @randomDuration: `Math.random() * 50`;
 @lineColor: #6df6ff;
 .wraper {
@@ -21,7 +21,7 @@
   }
 }
 
-.fn(@i) when(@i <= 30){
+.fn(@i) when(@i <= 55) {
   .lineLeft@{i} {
     left: @i + @randomNum + 0px;
     width: @randomWidth + 0px;
@@ -31,5 +31,5 @@
   }
   .fn((@i + 1));
 }
-  
+
 .fn(0);

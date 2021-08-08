@@ -11,6 +11,7 @@
   flex-direction: column;
   align-items: center;
   color: white;
+  // transition: all 0.4s;
   .userAvatar {
     background-color: white;
     width: 120px;
@@ -29,7 +30,18 @@
     margin-top: 10px;
   }
 }
-
+@media screen and(max-width: 960px) {
+  .userInfoContainer {
+    width: 60%;
+    margin-left: -30%;
+  }
+}
+@media screen and(max-width: 600px) {
+  .userInfoContainer {
+    width: 80%;
+    margin-left: -40%;
+  }
+}
 @keyframes printIn {
   from {
     opacity: 0;

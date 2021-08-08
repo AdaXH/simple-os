@@ -4,20 +4,24 @@ import { useDidMount } from '@/common/hooks';
 
 import styles from './index.module.less';
 
-export const Line: React.FC<{}> = memo(() => {
-  const [lines, setLines] = useState<
-    Array<{ width: number; height: number; left?: number; bottom: number; duration: number }>
-  >([]);
+type Lines = Array<{
+  width: number;
+  height: number;
+  left?: number;
+  bottom: number;
+  duration: number;
+}>;
+
+export const Line: React.FC<{ data: number }> = memo(({ data }) => {
+  if (!data) return null;
+  const [lines, setLines] = useState<Lines>([]);
   useDidMount(() => {
-    setLines(Array.from(Array(30)));
+    setLines(Array.from(Array(data)));
   });
   return (
     <>
       {lines.map((_, index) => (
-        <div
-          className={classNames(styles.line, styles[`lineLeft${index}`])}
-          key={index}
-        />
+        <div className={classNames(styles.line, styles[`lineLeft${index}`])} key={index} />
       ))}
     </>
   );

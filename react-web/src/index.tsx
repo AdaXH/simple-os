@@ -11,14 +11,18 @@ import './global.less';
 const App: React.FC<any> = () => {
   const history = createHashHistory();
   return (
-    <Layout>
+    <Layout history={history}>
       <Router history={history}>
-          {routes.map(({ path, Component, exact }) => (
-            <Route key={path} path={path} exact={exact}>
-              {({ match }) => <Transition match={match}><Component history={history} /></Transition>}
-            </Route>
-          ))}
-          <Redirect to="/" />
+        {routes.map(({ path, Component, exact }) => (
+          <Route key={path} path={path} exact={exact}>
+            {({ match }) => (
+              <Transition match={match}>
+                <Component history={history} />
+              </Transition>
+            )}
+          </Route>
+        ))}
+        {/* <Redirect to="/" /> */}
       </Router>
     </Layout>
   );

@@ -1,56 +1,57 @@
 @import '../../../../../../common//styles//animation.less';
-.active, .default {
-    align-items: center;
-    display: flex;
-    height: 100px;
-    justify-content: center;
-    position: relative;
-    width: 100px;
-    cursor: pointer;
-    transform: scale(0.8);
-    animation: opacity 3s infinite;
-  }
-  .active {
-    animation: none;
-  }
-  .fingerprint {
-    left: 0;
-    position: absolute;
-    stroke: #777;
-    top: 0;
-  }
-  .fingerprint-active {
-    stroke: #6df6ff;
-  }
-  .default .fingerprint-out {
-    opacity: 1;
-  }
-  .odd {
-    stroke-dasharray: 0px 50px;
-    stroke-dashoffset: 1px;
-    transition: stroke-dasharray 1ms;
-  }
-  .even {
-    stroke-dasharray: 50px 50px;
-    stroke-dashoffset: -41px;
-    transition: stroke-dashoffset 1ms;
-  }
+.active,
+.default {
+  align-items: center;
+  display: flex;
+  height: 100px;
+  justify-content: center;
+  position: relative;
+  width: 100px;
+  cursor: pointer;
+  transform: scale(0.8);
+  animation: opacity 3s infinite;
+}
+.active {
+  animation: none;
+}
+.fingerprint {
+  left: 0;
+  position: absolute;
+  stroke: #777;
+  top: 0;
+}
+.fingerprint-active {
+  stroke: #6df6ff;
+}
+.default .fingerprint-out {
+  opacity: 1;
+}
+.odd {
+  stroke-dasharray: 0px 50px;
+  stroke-dashoffset: 1px;
+  transition: stroke-dasharray 1ms;
+}
+.even {
+  stroke-dasharray: 50px 50px;
+  stroke-dashoffset: -41px;
+  transition: stroke-dashoffset 1ms;
+}
 
-  .active .fingerprint {
-    opacity: 1;
-    transition: opacity 150ms 100ms;
-  }
-  .default .fingerprint-base .odd {
-    stroke-dasharray: 50px 50px;
-  }
-  .default .fingerprint-base .even {
-    stroke-dashoffset: 0px;
-  }
-  .active .fingerprint-active .odd {
-    stroke-dasharray: 50px 50px;
-    transition: all 1000ms;
-  }
-  .active .fingerprint-active .even {
-    stroke-dashoffset: 0px;
-    transition: all 1000ms;
-  }
+.active .fingerprint {
+  opacity: 1;
+  transition: opacity 150ms 100ms;
+}
+.default .fingerprint-base .odd {
+  stroke-dasharray: 50px 50px;
+}
+.default .fingerprint-base .even {
+  stroke-dashoffset: 0px;
+}
+.active .fingerprint-active .odd {
+  stroke-dasharray: 50px 50px;
+  transition: all 1000ms;
+}
+.active .fingerprint-active .even {
+  stroke-dashoffset: 0px;
+  transition: all 1000ms;
+}

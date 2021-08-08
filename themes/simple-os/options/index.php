@@ -103,12 +103,27 @@ function themeConfig($form)
 EOF;
     echo '<script src="' . Helper::options()->themeUrl . '/assets/styles/options.js"></script>';
 
-    $blogTitle = new Typecho_Widget_Helper_Form_Element_Text('blogTitle', NULL, "Blog - title", _t('<h3>1.全局通用配置：</h3>博客标题：'));
+    $blogTitle = new Typecho_Widget_Helper_Form_Element_Text('blogTitle', NULL, "Simple - OS", _t('<h3>1.全局通用配置：</h3>博客标题：'));
     $blogTitle->setAttribute('class', 'options-content options-home');
     $form->addInput($blogTitle);
     $desc = new Typecho_Widget_Helper_Form_Element_Text('desc', NULL, "个人介绍", _t('个人简介：'));
     $desc->setAttribute('class', 'options-content options-home');
     $form->addInput($desc);
+    $bg = new Typecho_Widget_Helper_Form_Element_Text('bg', NULL, "", _t('背景图：'));
+    $bg->setAttribute('class', 'options-content options-home');
+    $form->addInput($bg);
+    $bgOpacity = new Typecho_Widget_Helper_Form_Element_Text('bgOpacity', NULL, "0.6", _t('背景透明度(0-1)：'));
+    $bgOpacity->setAttribute('class', 'options-content options-home');
+    $form->addInput($bgOpacity);
+    $effectLine = new Typecho_Widget_Helper_Form_Element_Radio('effectLine', array(
+        20 => _t('20'),
+        35 => _t('35'),
+        55 => _t('35'),
+        0 => _t('关闭'),
+    ), "20", _t('粒子个数：'));
+    $effectLine->setAttribute('class', 'options-content options-home');
+    $form->addInput($effectLine);
+
 
     $loadingTitle = new Typecho_Widget_Helper_Form_Element_Text('loadingTitle', NULL, "Welcome", _t('<h3>2.loading页配置：</h3>loading页主标题：'));
     $loadingTitle->setAttribute('class', 'options-content options-home');
@@ -132,14 +147,14 @@ EOF;
     $avatar = new Typecho_Widget_Helper_Form_Element_Text('avatar', NULL, "", _t('头像url：'));
     $avatar->setAttribute('class', 'options-content options-home');
     $form->addInput($avatar);
-    $userName = new Typecho_Widget_Helper_Form_Element_Text('userName', NULL, "不填写将使用博客标题", _t('用户名：'));
+    $userName = new Typecho_Widget_Helper_Form_Element_Text('userName', NULL, "", _t('用户名：'));
     $userName->setAttribute('class', 'options-content options-home user-name-placeholder');
     $form->addInput($userName);
 
     $hitokoto = new Typecho_Widget_Helper_Form_Element_Radio('hitokoto', array(
-        true => _t('启用'),
-        false => _t('关闭(将显示个人简介)')
-    ), "", _t('是否启用一言：'));
+        "true" => _t('启用'),
+        "false" => _t('关闭(将显示个人简介)')
+    ), "true", _t('是否启用一言：'));
     $hitokoto->setAttribute('class', 'options-content options-home');
     $form->addInput($hitokoto);
 

@@ -13,7 +13,11 @@ export const Transition: React.FC<{ match: any; timeout?: number }> = ({
       in={match !== null}
       classNames={{
         enter: styles.enter,
+        enterActive: styles.enterActive,
+        exitActive: styles.exitActive,
         exit: styles.exit,
+        enterDone: styles.anima,
+        exitDone: styles.anima,
       }}
       timeout={timeout}
       unmountOnExit

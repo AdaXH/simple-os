@@ -1,8 +1,24 @@
-@import url('../../common//styles/animation.less');
 .enter {
-  opacity: 1;
-  animation: scaleIn 0.5s forwards;
+  transform: translate3d(0, 0, 0);
+  transition-delay: -0.1s;
+}
+.enterActive {
+  transform: translate3d(-200px, 0, 0);
+  transition-delay: -0.1s;
+}
+.exitActive {
+  transform: translate3d(0, 0, 0);
+  transition-delay: -0.1s;
 }
 .exit {
-  animation: scaleIn 0.5s forwards reverse;
+  transform: translate3d(200px, 0, 0);
+  transition-delay: -0.1s;
+}
+.enter,
+.exit {
+  transition: all 0.3s;
+  opacity: 0;
+}
+.anima {
+  transition: all 0.3s;
 }

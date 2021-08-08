@@ -18,8 +18,12 @@ export const Hitokoto: React.FC<{ data: { useHitokoto: boolean; desc: string } }
     if (useHitokoto) {
       updTips();
       id = setInterval(updTips, 10000);
+    } else {
+      if (desc) {
+        setTip(desc);
+      }
     }
     return () => clearInterval(id);
-  }, [useHitokoto]);
+  }, [useHitokoto, desc]);
   return <div className={styles.hitokotoBox}>“{tip}”</div>;
 };

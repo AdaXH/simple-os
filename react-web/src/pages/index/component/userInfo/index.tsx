@@ -50,15 +50,15 @@ export const UserInfo: React.FC<{ history: History }> = ({ history }) => {
     ],
     [qq, email, github],
   );
-  const useHitokoto = useMemo(() => hitokoto === '1', [hitokoto]);
-  console.log('history', history)
+  const useHitokoto = useMemo(() => hitokoto === 'true', [hitokoto]);
+
   return (
     <div className={styles.userInfoContainer}>
       <div className={styles.userAvatar} style={{ backgroundImage: `url(${avatar})` }} />
       <h3 className={styles.userName}>{userName || blogTitle}</h3>
       <Operations history={history} list={operations} />
       <Hitokoto data={{ useHitokoto, desc }} />
-      <Entry onClick={() => history.push('/')} />
+      <Entry onClick={() => history.push('/menu')} />
     </div>
   );
 };

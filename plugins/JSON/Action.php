@@ -327,6 +327,22 @@ class JSON_Action extends Typecho_Widget implements Widget_Interface_Do
         }
     }
     /**
+     * 查询背景设置
+     */
+    private function queryBgConfig()
+    {
+        try {
+            $res = array(
+                'bg' => $this->option->bg,
+                'bgOpacity' => $this->option->bgOpacity,
+                'effectLine' => $this->option->effectLine,
+            );
+            $this->makeData($res);
+        } catch (Exception $e) {
+            echo $e;
+        }
+    }
+    /**
      * 查询所有分类
      */
     private function queryAllMetas()

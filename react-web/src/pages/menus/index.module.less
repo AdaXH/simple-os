@@ -1,0 +1,124 @@
+@import url('../../common/styles/constant.less');
+@import url('../../common/styles/animation.less');
+
+.menuBox {
+  width: 500px;
+  height: 500px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-top: -250px;
+  margin-left: -250px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  // transform: translate3d(0, 0, 0);
+  perspective: 800;
+  transform-style: preserve-3d;
+  // background: wheat;
+  .menu {
+    width: 100px;
+    height: 100px;
+    background: rgba(199, 199, 199, 0.85);
+    margin: 3px;
+  }
+  .out {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 200px;
+    height: 200px;
+    margin: -100px 0 0 -100px;
+    border: 2px solid white;
+    border-radius: 100px;
+    animation: shake 10s infinite;
+    div.m {
+      position: absolute;
+      width: 2px;
+      height: 100px;
+      background: @BASE_COLOR;
+      top: 0;
+      left: 0;
+      transform-origin: bottom center;
+      border-radius: 10px;
+    }
+    .m:nth-of-type(1) {
+      left: unset;
+      right: 20px;
+      top: unset;
+      height: 100px;
+      bottom: 121px;
+      transform: rotate(45deg);
+    }
+    .m:nth-of-type(2) {
+      left: 248px;
+      top: unset;
+      transform: rotate(90deg);
+      height: 83px;
+      bottom: 192px;
+    }
+    .m:nth-of-type(3) {
+      left: 53px;
+      top: unset;
+      transform: rotate(-45deg);
+      height: 113px;
+      bottom: 145px;
+    }
+    // .m:nth-of-type(4) {
+    //   right: 110px;
+    //   left: unset;
+    //   top: 41px;
+    //   transform: rotate(-130deg);
+    //   height: 113px;
+    // }
+    .m:nth-of-type(4) {
+      right: 115px;
+      left: unset;
+      top: unset;
+      transform: rotate(-134deg);
+      height: 82px;
+      bottom: 56px;
+    }
+    .m:nth-of-type(5) {
+      right: 174px;
+      left: unset;
+      top: unset;
+      transform: rotate(-90deg);
+      height: 139px;
+      bottom: 0px;
+    }
+    div.menuItem {
+      position: absolute;
+      // width: 60px;
+      // height: 40px;
+      // background: white;
+      color: white;
+      letter-spacing: 4px;
+      font-size: 20px;
+      // font-weight: bold;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      i {
+        font-weight: normal;
+        font-size: 25px;
+      }
+    }
+    .menuItem:nth-of-type(6) {
+      top: -54px;
+      left: -114px;
+    }
+    .menuItem:nth-of-type(7) {
+      top: -28px;
+      left: unset;
+      right: -137px;
+    }
+    .menuItem:nth-of-type(8) {
+      top: unset;
+      left: -114px;
+      bottom: 4px;
+    }
+  }
+}
