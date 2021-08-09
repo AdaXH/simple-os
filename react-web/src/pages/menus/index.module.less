@@ -9,19 +9,40 @@
   left: 50%;
   margin-top: -250px;
   margin-left: -250px;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: center;
-  // transform: translate3d(0, 0, 0);
-  perspective: 800;
-  transform-style: preserve-3d;
-  // background: wheat;
   .menu {
     width: 100px;
     height: 100px;
     background: rgba(199, 199, 199, 0.85);
     margin: 3px;
+  }
+  .inner {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 200px;
+    height: 200px;
+    border-radius: 100px;
+    overflow: hidden;
+    margin: -100px 0 0 -100px;
+    .heartBox {
+      width: 428px;
+      transform: translate3d(-160px, -10px, 0) scale(0.7);
+    }
+    .title {
+      margin: 0;
+      position: absolute;
+      top: 50%;
+      // width: 90%;
+      left: 50%;
+      color: white;
+      font-size: 25px;
+      padding: 3px 5px;
+      border-radius: 10px;
+      text-align: center;
+      transform: translate3d(-50%, -50%, 0);
+      letter-spacing: 1px;
+      background: rgba(199, 199, 199, 0.85);
+    }
   }
   .out {
     position: absolute;
@@ -30,9 +51,9 @@
     width: 200px;
     height: 200px;
     margin: -100px 0 0 -100px;
-    border: 2px solid white;
+    border: 2px solid @BASE_COLOR;
     border-radius: 100px;
-    animation: shake 10s infinite;
+    animation: shake 25s infinite;
     div.m {
       position: absolute;
       width: 2px;
@@ -101,24 +122,50 @@
       align-items: center;
       justify-content: center;
       cursor: pointer;
+      // top: 0;
+      // left: 0;
       i {
         font-weight: normal;
         font-size: 25px;
       }
     }
-    .menuItem:nth-of-type(6) {
-      top: -54px;
-      left: -114px;
+    .menuItem:nth-of-type(1) {
+      left: -50px;
+      animation: shake 20s infinite;
+      top: -50px;
+      animation-delay: -8s;
     }
-    .menuItem:nth-of-type(7) {
-      top: -28px;
-      left: unset;
-      right: -137px;
+    .menuItem:nth-of-type(2) {
+      right: -50px;
+      top: -50px;
+      animation: shake 20s infinite;
+      animation-delay: -6s;
     }
-    .menuItem:nth-of-type(8) {
-      top: unset;
-      left: -114px;
-      bottom: 4px;
+    .menuItem:nth-of-type(3) {
+      bottom: -50px;
+      left: -50px;
+      animation: shake 20s infinite;
+      animation-delay: -4s;
     }
+    .menuItem:nth-of-type(4) {
+      right: -50px;
+      bottom: -50px;
+      animation: shake 20s infinite;
+      animation-delay: -2s;
+    }
+    // .menuItem:nth-of-type(6) {
+    //   top: -54px;
+    //   left: -114px;
+    // }
+    // .menuItem:nth-of-type(7) {
+    //   top: -28px;
+    //   left: unset;
+    //   right: -137px;
+    // }
+    // .menuItem:nth-of-type(8) {
+    //   top: unset;
+    //   left: -114px;
+    //   bottom: 4px;
+    // }
   }
 }

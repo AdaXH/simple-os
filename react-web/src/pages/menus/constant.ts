@@ -14,9 +14,9 @@ export const MENUS = [
     icon: 'iconfont icon-msg',
     title: '留言',
   },
-  // {
-  //   path: '/about',
-  //   icon: 'iconfont icon-guanyu',
-  //   title: '关于我',
-  // },
+  {
+    path: '/about',
+    icon: 'iconfont icon-guanyu',
+    title: '关于我',
+  },
 ];

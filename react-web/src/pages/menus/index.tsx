@@ -6,12 +6,13 @@ import styles from './index.module.less';
 export default () => {
   return (
     <div className={styles.menuBox}>
+      <div className={styles.inner}>
+        {/* <h3 className={styles.title}>&copy;Simple</h3> */}
+        <div className={styles.heartBox}>
+          <Heart />
+        </div>
+      </div>
       <div className={styles.out}>
-        <div className={styles.m} />
-        <div className={styles.m} />
-        <div className={styles.m} />
-        <div className={styles.m} />
-        <div className={styles.m} />
         {MENUS.map((item) => (
           <div key={item.path} className={styles.menuItem}>
             <i className={item.icon} />
@@ -19,7 +20,6 @@ export default () => {
           </div>
         ))}
       </div>
-      <Heart />
     </div>
   );
 };
