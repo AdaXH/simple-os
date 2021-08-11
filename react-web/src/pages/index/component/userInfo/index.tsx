@@ -4,6 +4,7 @@ import { Operations } from './component/operations';
 import { Entry } from './component/entry';
 import { Hitokoto } from './component/hitokoto';
 import { queryIndexPageConfig } from './service';
+import { STATIC_MENUS } from './constant';
 
 import styles from './index.module.less';
 
@@ -56,7 +57,7 @@ export const UserInfo: React.FC<{ history: History }> = ({ history }) => {
     <div className={styles.userInfoContainer}>
       <div className={styles.userAvatar} style={{ backgroundImage: `url(${avatar})` }} />
       <h3 className={styles.userName}>{userName || blogTitle}</h3>
-      <Operations history={history} list={operations} />
+      <Operations history={history} list={STATIC_MENUS} />
       <Hitokoto data={{ useHitokoto, desc }} />
       <Entry onClick={() => history.push('/menu')} />
     </div>

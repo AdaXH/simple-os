@@ -355,6 +355,32 @@ class JSON_Action extends Typecho_Widget implements Widget_Interface_Do
             echo $exception;
         }
     }
+    /**
+     * 查询文章列表 
+     */
+    private function getArticleList()
+    {
+        try {
+            $this->widget('Widget_Contents_Post_Recent', 'pageSize=10000')->to($archives);
+            $arr = array();
+            while ($archives->next()) {
+                $date = "$archives->year-$archives->month-$archives->day";
+                $arr[] = array(
+                    "cid" => $archives->cid,
+                    "date" => $date,
+                    "count" => $archives->count,
+                    "categories" => $archives->categories,
+                    "permalink" => $archives->permalink,
+                    "summary" => mb_strimwidth($archives->excerpt, 0, 200, '...'),
+                    "title" => mb_strimwidth($archives->title, 0, 200, '...'),
+                );
+            }
+            // $this->makeData(array("a" => $arr, "b" => $archives));
+            $this->makeData($arr);
+        } catch (Exception $error) {
+            echo $error;
+        }
+    }
     private function debugTest()
     {
         try {

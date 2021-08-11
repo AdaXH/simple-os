@@ -1,5 +1,5 @@
 import Index from '@/pages/index';
-import Article from '@/pages/article';
+import ArticleList from '@/pages/articleList';
 import Menus from '@/pages/menus';
 
 export default [
@@ -15,7 +15,7 @@ export default [
   },
   {
     path: '/article-list',
-    Component: Article,
+    Component: ArticleList,
     exact: true,
   },
 ];

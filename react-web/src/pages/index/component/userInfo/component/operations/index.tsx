@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef, useCallback } from 'react';
+import React, { useState, useEffect, useRef, useCallback, ChangeEvent } from 'react';
 import classnames from 'classnames';
 
 import styles from './index.module.less';
@@ -6,22 +6,21 @@ import styles from './index.module.less';
 export const Operations: React.FC<{
   history: History;
   list: Array<{
-    value?: string;
+    title?: string;
     icon: string;
-    url: string;
-    useHistory?: boolean;
+    path: string;
   }>;
 }> = (props) => {
   const { list, history } = props;
   if (!list?.length) return null;
   const [inputCfg, setInput] = useState<{ visible?: Boolean; value?: string }>({});
   const inputRef = useRef<HTMLInputElement>();
-  const hanldeClick = (url, useHistory) => {
-    if (useHistory) {
-      history.push(url);
-    } else {
-      window.open(url);
-    }
+  const hanldeClick = (url) => {
+    // if (useHistory) {
+    history.push(url);
+    // } else {
+    //   window.open(url);
+    // }
   };
   const { visible, value } = inputCfg;
   useEffect(() => {
@@ -32,15 +31,21 @@ export const Operations: React.FC<{
   const onClickIcon = useCallback(() => {
     setInput({ ...inputCfg, visible: !visible });
   }, [inputCfg]);
+  const onChangeSearch = (e: ChangeEvent<HTMLInputElement>) => {
+    // if (e)
+    console.log(e)
+    setInput({ ...inputCfg, value: e.target.value });
+  }
   return (
     <div className={classnames({ [styles.quickOpen]: true, [styles.quickOpenVisible]: visible })}>
       <input
         placeholder="按下回车搜索"
         ref={inputRef}
         className={classnames({ [styles.search]: true, [styles.searchVisible]: visible })}
+        onChange={onChangeSearch}
       />
       {list.map((item) => (
-        <a key={item.icon} onClick={() => hanldeClick(item.url, item.useHistory)}>
+        <a key={item.icon} onClick={() => hanldeClick(item.path)}>
           <i className={`${item.icon} iconfont`} />
         </a>
       ))}
