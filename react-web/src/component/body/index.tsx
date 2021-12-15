@@ -5,6 +5,7 @@ import { Line } from './effectLine';
 import { queryBgConfig } from './service';
 
 import styles from './index.module.less';
+import { Galaxy } from '../galaxy';
 
 const body = document.querySelector('body');
 
@@ -13,14 +14,15 @@ export default () => {
     bgOpacity: '0.6',
     effectLine: '0',
   });
-  useDidMount(() => {
-    body.style.backgroundImage = `url(${bg1})`;
-    queryBgConfig().then((res) => setCfg(res));
-  });
+  // useDidMount(() => {
+  //   body.style.backgroundImage = `url(${bg1})`;
+  //   queryBgConfig().then((res) => setCfg(res));
+  // });
   const { bgOpacity, effectLine } = config;
   return (
-    <div className={styles.wraper} style={{ backgroundColor: `rgba(0,0,0,${bgOpacity})` }}>
-      <Line data={Number(effectLine)} />
+    <div className={styles.wraper}>
+      {/* <Line data={Number(effectLine)} /> */}
+      <Galaxy />
     </div>
   );
 };
